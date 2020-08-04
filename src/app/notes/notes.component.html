@@ -1,0 +1,36 @@
+<div class="container h-100">
+  <div class="row h-100 align-items-center">
+    <div class="col-10 offset-1 d-flex flex-column">
+      <mat-accordion class="example-headers-align">
+
+        <mat-expansion-panel *ngFor="let note of notes; let i = index; let first = first; let last = last"
+                             [expanded]="step === i" (opened)="setStep(i)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{note.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{note.creationDate | date}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>{{note.content}}</p>
+
+          <mat-action-row>
+            <button mat-button color="warn" (click)="remove(note.noteID)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-button color="primary" (click)="edit(note.noteID)">
+              <mat-icon>create</mat-icon>
+            </button>
+            <button *ngIf="!first" mat-button color="warn" (click)="prevStep()">Poprzednia</button>
+            <button *ngIf="!last" mat-button color="primary" (click)="nextStep()">Następna</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+      <button mat-button (click)="addNote()" class="mt-3">Dodaj nową notatkę</button>
+      <button mat-button (click)="logout()" class="mt-5">Wyloguj</button>
+    </div>
+  </div>
+</div>
+

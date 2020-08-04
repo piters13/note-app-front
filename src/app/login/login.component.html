@@ -1,0 +1,24 @@
+<div class="container h-100">
+  <div class="row h-100 align-items-center">
+    <div class="col-6 offset-3">
+      <mat-card>
+        <form [formGroup]="loginForm" class="d-flex flex-column">
+          <mat-form-field>
+            <mat-label>Login</mat-label>
+            <input matInput placeholder="t.hajto" formControlName="username">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Hasło</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="*****" formControlName="password">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+
+          <button mat-button (click)="login()">Zaloguj</button>
+        </form>
+      </mat-card>
+      <div class="mt-2 text-center">
+        <span>Nie masz jeszcze konta? </span><a routerLink="/register">Zarejestruj się!</a>
+      </div>
+    </div>
+  </div>
+</div>

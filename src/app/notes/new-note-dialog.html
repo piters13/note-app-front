@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
+
+<mat-dialog-content [formGroup]="newNoteForm" class="d-flex flex-column">
+  <mat-form-field>
+    <mat-label>Nazwa</mat-label>
+    <input matInput placeholder="nazwa" formControlName="title">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Notatka</mat-label>
+    <textarea matInput rows="5" placeholder="treść notatki..." formControlName="content"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-end">
+  <button class="mat-raised-button"(click)="close()">Zamknij</button>
+  <button class="mat-raised-button mat-primary ml-2"(click)="save()">{{submitButtonLabel}}</button>
+</mat-dialog-actions>

@@ -1,0 +1,28 @@
+<div class="container h-100">
+  <div class="row h-100 align-items-center">
+    <div class="col-6 offset-3">
+      <mat-card>
+        <form [formGroup]="registerForm" class="d-flex flex-column">
+          <mat-form-field>
+            <mat-label>Login</mat-label>
+            <input matInput placeholder="t.hajto" formControlName="username">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Hasło</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="*****" formControlName="password">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Powtórz hasło</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="*****" formControlName="confirmPassword">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <button mat-button (click)="register()">Zarejestruj</button>
+        </form>
+      </mat-card>
+      <div class="mt-2 text-center">
+        <span>Masz już konto? </span><a routerLink="/login">Zaloguj się</a>
+      </div>
+    </div>
+  </div>
+</div>
